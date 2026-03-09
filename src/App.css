@@ -41,7 +41,3 @@
   color: #888;
 } */
 
-@import "tailwindcss";
-@plugin "daisyui" {
-  themes: light --default, dark --prefersdark, cupcake;
-};
