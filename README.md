@@ -21,3 +21,8 @@ Remove unecessary code and print hello world
 Install tailwind CSS
 Install Daisy UI
 Add Nav var component to App component
+Create separate Navbar separate file
+Install react router // npm i react-router-dom
+Create BrowserRouter -> Routes -> Route =/ Body->RouteChildre
+Create an outlet in your Body Component
+ 
