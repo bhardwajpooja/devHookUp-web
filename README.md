@@ -25,4 +25,6 @@ Create separate Navbar separate file
 Install react router // npm i react-router-dom
 Create BrowserRouter -> Routes -> Route =/ Body->RouteChildre
 Create an outlet in your Body Component
- 
+Install axios
+CORS -> install cors in backend, add midlleware with configrations, origin, credentials-> true
+whenever we are making API call so pass axios {withCredentails: true}
