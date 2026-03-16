@@ -32,3 +32,6 @@ Install react-redux, redux-toolkit ==> configureStore ==> Provider =>  createSli
 Add redux dev tools in chrome
 Login and see if data coming properly in store
 Refactor code 
+If no token, redirect user to profile page
+/profile
+/logout

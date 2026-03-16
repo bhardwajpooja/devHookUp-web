@@ -1,4 +1,5 @@
 import {useSelector} from 'react-redux'
+import { Link } from "react-router-dom"
 
 // {/* <img
 //                   alt="Tailwind CSS Navbar component"
@@ -29,13 +30,13 @@ const Navbar = () => {
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
               <li>
-                <a className="justify-between">
+                <Link to="/" className="justify-between">
                   Profile
                   <span className="badge">New</span>
-                </a>
+                </Link>
               </li>
-              <li><a>Settings</a></li>
-              <li><a>Logout</a></li>
+              <li><Link to="/"> Settings</Link></li>
+              <li><Link to="/"> Logout</Link></li>
             </ul>
           </div>
         </div>
