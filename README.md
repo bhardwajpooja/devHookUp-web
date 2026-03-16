@@ -28,3 +28,7 @@ Create an outlet in your Body Component
 Install axios
 CORS -> install cors in backend, add midlleware with configrations, origin, credentials-> true
 whenever we are making API call so pass axios {withCredentails: true}
+Install react-redux, redux-toolkit ==> configureStore ==> Provider =>  createSlice => add reducer to store
+Add redux dev tools in chrome
+Login and see if data coming properly in store
+Refactor code 

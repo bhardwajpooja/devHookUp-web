@@ -3,14 +3,16 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter, Routes , Route} from 'react-router-dom'
-import Login from './Login'
-import Body from './Body'
-import Profile from './Profile'
-
+import Login from './components/Login'
+import Body from './components/Body'
+import Profile from './components/Profile'
+import {Provider} from "react-redux"
+import appStore from "./utils/appStore"
+import Feed from './components/Feed'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  
   return (
     <>
       {/* <div>
@@ -21,15 +23,18 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div> */}
-      <BrowserRouter basename="/">
-        <Routes>
-        <Route path= "/" element = {<Body/>}>
-          <Route path= "/login" element = {<Login/>}/>
-          <Route path= "/profile" element = {<Profile/>}/>
-        </Route>
-          {/* <Route path= "/profile" element = {<div>Profile page</div>}/> */}
-        </Routes>
-      </BrowserRouter>
+      <Provider store = {appStore}>
+        <BrowserRouter basename="/">
+          <Routes>
+          <Route path= "/" element = {<Body/>}>
+          <Route path= "/feed" element = {<Feed/>}/>
+            <Route path= "/login" element = {<Login/>}/>
+            <Route path= "/profile" element = {<Profile/>}/>
+          </Route>
+            {/* <Route path= "/profile" element = {<div>Profile page</div>}/> */}
+          </Routes>
+        </BrowserRouter>
+      </Provider>
 
     {/* <div className="p-6">
       <button className="btn btn-primary">Primary Button</button>
