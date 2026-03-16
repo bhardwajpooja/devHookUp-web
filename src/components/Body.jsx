@@ -16,7 +16,7 @@ const Body = () => {
         if (userData) return
         try {
             const res = await axios.get(`${BASE_URL}profile/view`,{ withCredentials : true });
-             console.log('res_______',res)
+            console.log('res_______',res)
             dispatch(addUser(res.data.data))
             //return navigate("/feed")
         } catch(error) {

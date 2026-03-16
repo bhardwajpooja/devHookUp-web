@@ -1,5 +1,10 @@
 import {useSelector} from 'react-redux'
 import { Link } from "react-router-dom"
+import { BASE_URL } from "../utils/constant"
+import axios from "axios"
+import { useNavigate } from "react-router-dom";
+
+
 
 // {/* <img
 //                   alt="Tailwind CSS Navbar component"
@@ -7,6 +12,19 @@ import { Link } from "react-router-dom"
 
 const Navbar = () => {
   const userData = useSelector((store) => store.user)
+  //const dispatch  =  useDispatch()
+  const navigate = useNavigate()
+
+  const handleLogout = async () => {
+    try {
+        const res = await axios.post(`${BASE_URL}logout`,{}, { withCredentials : true });
+        console.log('res',res)
+      //  dispatch(addUser(res.data.data))
+       return navigate("/login")
+      } catch(exception) {
+          console.log('exception',exception)
+      }
+    }
     return (
         <div>
            <div className="navbar bg-base-200 shadow-sm">
@@ -35,8 +53,8 @@ const Navbar = () => {
                   <span className="badge">New</span>
                 </Link>
               </li>
-              <li><Link to="/"> Settings</Link></li>
-              <li><Link to="/"> Logout</Link></li>
+              <li><a to="/"> Settings</a></li>
+              <li><a to="/" onClick={handleLogout}> Logout</a></li>
             </ul>
           </div>
         </div>
