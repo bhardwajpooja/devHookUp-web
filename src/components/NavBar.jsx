@@ -1,10 +1,9 @@
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import { Link } from "react-router-dom"
 import { BASE_URL } from "../utils/constant"
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
-
-
+import { removeUser } from "../utils/userSlice";
 
 // {/* <img
 //                   alt="Tailwind CSS Navbar component"
@@ -12,19 +11,19 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const userData = useSelector((store) => store.user)
-  //const dispatch  =  useDispatch()
+  const dispatch  =  useDispatch()
   const navigate = useNavigate()
 
   const handleLogout = async () => {
     try {
         const res = await axios.post(`${BASE_URL}logout`,{}, { withCredentials : true });
         console.log('res',res)
-      //  dispatch(addUser(res.data.data))
-       return navigate("/login")
-      } catch(exception) {
-          console.log('exception',exception)
-      }
+        dispatch(removeUser())
+        return navigate("/login")
+    } catch(exception) {
+      console.log('exception',exception)
     }
+  }
     return (
         <div>
            <div className="navbar bg-base-200 shadow-sm">
@@ -48,7 +47,7 @@ const Navbar = () => {
               tabIndex="-1"
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
               <li>
-                <Link to="/" className="justify-between">
+                <Link to="/profile" className="justify-between">
                   Profile
                   <span className="badge">New</span>
                 </Link>
