@@ -99,3 +99,10 @@ sudo systemctl restart nginx
 sudo systemctl enable nginx
 
 Modify the front end BASE_URL from  "localhost:3000" to /api/
+
+
+Front End Pull:-
+git pull
+npm run build
+copy code from dist(folder) to ngnix path (var/www/html)
+sudo scp -r dist/* /var/www/html/
