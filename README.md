@@ -35,3 +35,67 @@ Refactor code
 If no token, redirect user to profile page
 /profile
 /logout
+
+
+// AWS instance steps
+// Deployment
+Sign in into AWS
+Launch instance
+chmod 400 <secret>.pem
+<!-- chmod 400 "devHookUP.pem"   <secret.pem> -->
+ssh -i "devHookUP.pem" ubuntu@ec2-13-51-79-224.eu-north-1.compute.amazonaws.com
+install node
+git clone
+
+<!-- # Download and install nvm:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+
+# in lieu of restarting the shell
+\. "$HOME/.nvm/nvm.sh"
+
+# Download and install Node.js:
+nvm install 24 // nvm install v20.20.1
+
+# Verify the Node.js version:
+node -v # Should print "v24.14.0".
+
+# Verify npm version:
+npm -v # Should print "11.9.0". -->
+ front end
+ npm install
+ npm run build (for dist creation)
+ we will use nginx to host our fornt end project
+ // sudo apt update
+sudo apt install nginx
+sudo systemctl start nginx
+sudo systemctl enable nginx
+copy code from dist(folder) to ngnix path (var/www/html)
+sudo scp -r dist/* /var/www/html/
+enable port 80 to make this work 
+install pm2 to keep application running by 24/7
+npm install pm2 -g
+pm2 start npm -- start
+pm2 list
+pm2 restart <name of process>
+pm2 delete <name of process>
+pm2 start npm --name "devHookUpBackend" -- start
+pm2 logs
+
+// ngnix configs 
+sudo nano /etc/nginx/sites-available/default
+
+server_name 13.51.79.224;
+
+location /api {
+        proxy_pass http://localhost:3000/; # Pass request to node js app
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+sudo systemctl restart nginx
+sudo systemctl enable nginx
+
+Modify the front end BASE_URL from  "localhost:3000" to /api/
