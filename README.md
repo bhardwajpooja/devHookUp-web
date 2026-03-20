@@ -106,3 +106,16 @@ git pull
 npm run build
 copy code from dist(folder) to ngnix path (var/www/html)
 sudo scp -r dist/* /var/www/html/
+
+
+== Domain
+do to godaddy -> 
+purchase domain name from godaddy
+sign in to cloudflare and add a new domain
+change name servers on godaddy and point it to cloudflare
+wait for sometime till your name nameservers are up ~15 mins
+DNS records : A devtinder in 43.23.45.343 // IP
+SSL configurations in cloudfalre
+Enable SSL for website
+// send email using SES
+// build own chat system
