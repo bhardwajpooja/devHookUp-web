@@ -119,3 +119,27 @@ SSL configurations in cloudfalre
 Enable SSL for website
 // send email using SES
 // build own chat system
+
+
+// ssh -i "devHookUP.pem" ubuntu@ec2-13-51-79-224.eu-north-1.compute.amazonaws.com
+
+
+// Razorpay Payment Gateway Implementation
+Signup on razorpay and complete KYC
+created UI for premimum page
+added my key and secret in env file
+Initialized Razor pay in utils
+creating order on razor pay
+create schema and model
+saved the order in payment collection
+make the API's dynamic
+Setup Razorpay webhook on your live API
+docs
+
+https://razorpay.com/docs/payments
+https://razorpay.com/docs/webhooks
+
+// socket.io
+
+
+namaste dev -> 13.51.79.224
